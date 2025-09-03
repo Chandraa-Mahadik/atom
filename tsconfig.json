@@ -5,10 +5,20 @@
     { "path": "./tsconfig.node.json" }
   ],
   "compilerOptions": {
+    "target": "ES2020",
+    "module": "ESNext",
+    "jsx": "react-jsx",
+    "declaration": true,              // dts plugin reads types; also useful for editors
+    "emitDeclarationOnly": false,
+    "skipLibCheck": true,
+    "moduleResolution": "Bundler",
+    "strict": true,
     "types": ["node"],
     "baseUrl": ".",
     "paths": {
       "@/*": ["src/*"]
     }
-  }
+  },
+  "include": ["src", "vite.config.ts", ".storybook"],
+  "exclude": ["dist"]
 }
