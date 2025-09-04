@@ -1,5 +1,6 @@
 import type { Config } from 'tailwindcss'
 import radixPlugin from 'tailwindcss-radix' // optional; remove if not used
+import animate from "tailwindcss-animate"
 
 export default {
   content: [
@@ -60,6 +61,6 @@ export default {
   },
   plugins: [
     radixPlugin({}),           // data-[state=open] variants like radix-open:, etc.
-    require('tailwindcss-animate'),
+    animate,
   ],
 } satisfies Config
