@@ -35,6 +35,7 @@ export default meta;
 type Story = StoryObj<typeof Button>;
 
 export const Primary: Story = { args: { variant: "primary" } };
+export const Secondary: Story = { args: { variant: "secondary" } };
 export const Ghost: Story = { args: { variant: "ghost" } };
 // export const Icon: Story = { args: { variant: "icon" } };
 // export const IconGhost: Story = { args: { variant: "iconGhost" } };

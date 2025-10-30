@@ -5,11 +5,14 @@ import { cn } from "../../lib/cn";
 
 const buttonVariants = cva(
   "inline-flex items-center justify-center whitespace-nowrap select-none " +
-    "transition-colors disabled:opacity-50 disabled:pointer-events-none " +
-    "rounded-md font-medium focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 " +
+    "disabled:opacity-50 disabled:pointer-events-none " +
+    "rounded-md font-medium leading-none focus:outline-none " +
+    "focus-visible:ring-2 focus-visible:ring-offset-2 " +
     "focus-visible:ring-[var(--atom-ring-color)] focus-visible:ring-offset-[var(--atom-ring-offset)] " +
-    // needed for ripple clipping
-    "relative overflow-hidden isolate",
+    "transition-colors transition-transform duration-150 ease-in-out " +
+    "relative overflow-hidden isolate " +
+    "[&>svg]:fill-current [&>svg]:stroke-current " +
+    "motion-reduce:transform-none motion-reduce:transition-none",
   {
     variants: {
       variant: {
@@ -17,18 +20,38 @@ const buttonVariants = cva(
           "text-[var(--atom-button-fg)] bg-[var(--atom-button-bg)] hover:bg-[var(--atom-button-bg-hover)]",
         ghost:
           "text-[var(--atom-button-ghost-fg)] bg-[var(--atom-button-ghost-bg)] hover:bg-[var(--atom-button-ghost-hover-bg)]",
+        icon:
+          "rounded-full p-0 text-[var(--atom-button-ghost-fg)] bg-transparent hover:bg-[var(--atom-button-ghost-hover-bg)]",
+        iconGhost:
+          "rounded-full p-0 text-[var(--atom-button-ghost-fg)] bg-transparent hover:bg-[var(--atom-button-ghost-hover-bg)]",
+
+        // 🆕 Secondary (bordered)
+        secondary:
+          "border border-[var(--atom-border)] text-[var(--atom-primary)] bg-transparent " +
+          "hover:border-[color-mix(in srgb, var(--atom-primary) 80%, black)] " +
+          "hover:text-[color-mix(in srgb, var(--atom-primary) 90%, black)] " +
+          "hover:bg-[color-mix(in srgb, var(--atom-primary) 8%, white)]",
       },
       size: {
-        sm: "h-8 px-3 text-sm",
-        md: "h-10 px-4 text-sm",
-        lg: "h-12 px-5 text-base",
+        sm: "h-8 px-3 text-sm [&>svg]:size-4",
+        md: "h-10 px-4 text-sm [&>svg]:size-5",
+        lg: "h-12 px-5 text-base [&>svg]:size-6",
       },
       fullWidth: { true: "w-full" },
     },
-    defaultVariants: {
-      variant: "primary",
-      size: "md",
-    },
+    compoundVariants: [
+      // Square icon buttons (no padding)
+      { variant: "icon", size: "sm", class: "w-8 h-8 !px-0 aspect-square [&>svg]:size-4" },
+      { variant: "icon", size: "md", class: "w-10 h-10 !px-0 aspect-square [&>svg]:size-5" },
+      { variant: "icon", size: "lg", class: "w-12 h-12 !px-0 aspect-square [&>svg]:size-6" },
+      { variant: "iconGhost", size: "sm", class: "w-8 h-8 !px-0 aspect-square [&>svg]:size-4" },
+      { variant: "iconGhost", size: "md", class: "w-10 h-10 !px-0 aspect-square [&>svg]:size-5" },
+      { variant: "iconGhost", size: "lg", class: "w-12 h-12 !px-0 aspect-square [&>svg]:size-6" },
+
+      { variant: "icon", class: "hover:scale-105 active:scale-95 hover:opacity-90" },
+      { variant: "iconGhost", class: "hover:scale-105 active:scale-95 hover:opacity-90" },
+    ],
+    defaultVariants: { variant: "primary", size: "md" },
   }
 );
 
@@ -53,8 +76,6 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
 
       const rect = el.getBoundingClientRect();
       const maxDim = Math.max(rect.width, rect.height);
-
-      // 🔸 Add this size-based scaling factor
       const factor = size === "sm" ? 0.5 : size === "lg" ? 0.7 : 0.6;
       const radius = maxDim * factor;
 
@@ -68,20 +89,20 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       span.style.left = `${x}px`;
       span.style.top = `${y}px`;
 
-      const isGhost = variant === "ghost";
-      const color = getComputedStyle(el).getPropertyValue(
-        isGhost ? "--atom-ripple-color-ghost" : "--atom-ripple-color-solid"
-      ).trim();
+      const isGhostLike =
+        (variant ?? "primary") === "ghost" || variant === "icon" || variant === "iconGhost" || variant === "secondary";
+      const color = getComputedStyle(el)
+        .getPropertyValue(isGhostLike ? "--atom-ripple-color-ghost" : "--atom-ripple-color-solid")
+        .trim();
       span.style.background = color || "currentColor";
 
       el.appendChild(span);
       span.addEventListener("animationend", () => span.remove(), { once: true });
     };
 
-
     return (
       <Comp
-        ref={(node: any) => {
+        ref={(node: HTMLButtonElement | null) => {
           btnRef.current = node;
           if (typeof ref === "function") ref(node);
           else if (ref) (ref as React.MutableRefObject<HTMLButtonElement | null>).current = node;
@@ -93,5 +114,4 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
     );
   }
 );
-
 Button.displayName = "Button";
