@@ -2,12 +2,9 @@
 import * as React from "react";
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import { Button } from "./Button";
-// import { ReactComponent as ProfileCircle } from "../assets/profile-circle.svg";
 
 const ProfileCircle: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
   <svg
-    width="64px"
-    height="64px"
     viewBox="0 0 24 24"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
@@ -24,6 +21,7 @@ const ProfileCircle: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
   </svg>
 );
 
+
 const meta: Meta<typeof Button> = {
   title: "Components/Button",
   component: Button,
@@ -37,8 +35,6 @@ type Story = StoryObj<typeof Button>;
 export const Primary: Story = { args: { variant: "primary" } };
 export const Secondary: Story = { args: { variant: "secondary" } };
 export const Ghost: Story = { args: { variant: "ghost" } };
-// export const Icon: Story = { args: { variant: "icon" } };
-// export const IconGhost: Story = { args: { variant: "iconGhost" } };
 
 export const Sizes: Story = {
   render: () => (
@@ -73,16 +69,8 @@ export const FullWidth: Story = {
 export const AsChildLink: Story = {
   render: () => (
     <Button asChild>
+      {/* Radix Slot: renders the button styles on this anchor */}
       <a href="#settings">Go to Settings</a>
     </Button>
   ),
 };
-
-
-// export const TailwindProbe = {
-//   render: () => (
-//     <div className="p-4 bg-red-500 text-white rounded-lg">
-//       If this is NOT red with padding & rounded corners, Tailwind didn’t run in Storybook.
-//     </div>
-//   ),
-// };

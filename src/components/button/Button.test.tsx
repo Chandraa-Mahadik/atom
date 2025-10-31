@@ -31,47 +31,38 @@ describe("Button", () => {
   it("applies icon square sizing (md)", () => {
     render(<Button variant="icon" size="md" aria-label="Icon" />);
     const btn = screen.getByRole("button", { name: "Icon" });
-    // square icon buttons get fixed w/h and no horizontal padding
     expect(btn.className).toContain("w-10");
     expect(btn.className).toContain("h-10");
-    // our compound variants use `!px-0`; depending on your Tailwind build,
-    // this will appear as `!px-0` in the className string. We check width/height,
-    // which is the core of the layout.
   });
 
   it("creates a ripple span on pointer down (md)", async () => {
     render(<Button size="md">Ripple</Button>);
-    const btn = screen.getByText("Ripple");
+    const btn = screen.getByText("Ripple") as HTMLButtonElement;
 
-    // jsdom doesn't layout; mock the rect used by ripple math
     const origGetRect = btn.getBoundingClientRect;
-    (btn as HTMLButtonElement).getBoundingClientRect = () =>
+    btn.getBoundingClientRect = () =>
       ({ left: 0, top: 0, width: 40, height: 40 } as DOMRect);
 
-    // Trigger pointerdown (left click)
     fireEvent.pointerDown(btn, { pointerType: "mouse", button: 0, clientX: 20, clientY: 20 });
 
-    // ripple span should be appended
     const ripple = (btn as HTMLElement).querySelector(".atom-ripple");
     expect(ripple).toBeTruthy();
 
-    // restore (not strictly required in Vitest, but nice hygiene)
-    (btn as HTMLButtonElement).getBoundingClientRect = origGetRect;
+    btn.getBoundingClientRect = origGetRect;
   });
 
   it("keyboard Enter triggers centered ripple", async () => {
     render(<Button size="md">Keyboard</Button>);
-    const btn = screen.getByText("Keyboard");
+    const btn = screen.getByText("Keyboard") as HTMLButtonElement;
 
-    // mock rect
     const origGetRect = btn.getBoundingClientRect;
-    (btn as HTMLButtonElement).getBoundingClientRect = () =>
+    btn.getBoundingClientRect = () =>
       ({ left: 0, top: 0, width: 40, height: 40 } as DOMRect);
 
     await userEvent.keyboard("{Enter}");
     const ripple = (btn as HTMLElement).querySelector(".atom-ripple");
     expect(ripple).toBeTruthy();
 
-    (btn as HTMLButtonElement).getBoundingClientRect = origGetRect;
+    btn.getBoundingClientRect = origGetRect;
   });
 });

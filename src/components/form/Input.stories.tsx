@@ -57,3 +57,11 @@ export const Sizes: Story = {
 export const Disabled: Story = {
   args: { disabled: true, value: "Disabled value" },
 };
+
+export const ReadOnly: Story = {
+  args: { readOnly: true, value: "Read-only value" },
+};
+
+export const Loading: Story = {
+  args: { leftIcon: <Search />, loading: true, placeholder: "Checking…" },
+};

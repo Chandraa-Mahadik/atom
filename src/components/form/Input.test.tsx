@@ -39,7 +39,6 @@ describe("Input", () => {
   it("adds padding when left/right icons provided", () => {
     render(<Input placeholder="icons" leftIcon={<LeftIcon />} rightIcon={<RightIcon />} />);
     const inp = screen.getByPlaceholderText("icons");
-    // hasLeft → pl-9, hasRight → pr-9 (from Input.tsx variants)
     expect(inp.className).toContain("pl-9");
     expect(inp.className).toContain("pr-9");
   });
@@ -48,12 +47,9 @@ describe("Input", () => {
     render(<Input placeholder="err" errorText="This field is required" />);
     const inp = screen.getByPlaceholderText("err");
     expect(inp).toHaveAttribute("aria-invalid", "true");
-    // The class with error border var should be present
     expect(inp.className).toContain("border-[var(--atom-error)]");
-    // Error text should be rendered and referenced via aria-describedby
     expect(screen.getByText("This field is required")).toBeInTheDocument();
     const describedBy = inp.getAttribute("aria-describedby") || "";
-    // It should include the error id suffix `__err`
     expect(describedBy).toMatch(/__err/);
   });
 
@@ -77,5 +73,12 @@ describe("Input", () => {
     render(<Input placeholder="disabled" disabled />);
     const inp = screen.getByPlaceholderText("disabled") as HTMLInputElement;
     expect(inp.disabled).toBe(true);
+  });
+
+  it("supports readOnly", () => {
+    render(<Input placeholder="ro" readOnly value="RO" />);
+    const inp = screen.getByPlaceholderText("ro") as HTMLInputElement;
+    expect(inp.readOnly).toBe(true);
+    expect(inp.value).toBe("RO");
   });
 });

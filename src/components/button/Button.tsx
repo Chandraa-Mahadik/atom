@@ -7,10 +7,14 @@ const buttonVariants = cva(
   "inline-flex items-center justify-center whitespace-nowrap select-none " +
     "disabled:opacity-50 disabled:pointer-events-none " +
     "rounded-md font-medium leading-none focus:outline-none " +
+    // Radix-style focus ring tokens (your theme controls these)
     "focus-visible:ring-2 focus-visible:ring-offset-2 " +
     "focus-visible:ring-[var(--atom-ring-color)] focus-visible:ring-offset-[var(--atom-ring-offset)] " +
+    // Motion
     "transition-colors transition-transform duration-150 ease-in-out " +
+    // Ripple clipping
     "relative overflow-hidden isolate " +
+    // Make child SVGs inherit color
     "[&>svg]:fill-current [&>svg]:stroke-current " +
     "motion-reduce:transform-none motion-reduce:transition-none",
   {
@@ -20,19 +24,25 @@ const buttonVariants = cva(
           "text-[var(--atom-button-fg)] bg-[var(--atom-button-bg)] hover:bg-[var(--atom-button-bg-hover)]",
         ghost:
           "text-[var(--atom-button-ghost-fg)] bg-[var(--atom-button-ghost-bg)] hover:bg-[var(--atom-button-ghost-hover-bg)]",
+
+        // Round icon buttons (transparent by default)
         icon:
           "rounded-full p-0 text-[var(--atom-button-ghost-fg)] bg-transparent hover:bg-[var(--atom-button-ghost-hover-bg)]",
         iconGhost:
           "rounded-full p-0 text-[var(--atom-button-ghost-fg)] bg-transparent hover:bg-[var(--atom-button-ghost-hover-bg)]",
+
+        // Square icon buttons (rounded-md)
         iconSquare:
           "rounded-md p-0 text-[var(--atom-button-ghost-fg)] bg-transparent hover:bg-[var(--atom-button-ghost-hover-bg)]",
         iconSquareGhost:
           "rounded-md p-0 text-[var(--atom-button-ghost-fg)] bg-transparent hover:bg-[var(--atom-button-ghost-hover-bg)]",
+
+        // Outlined secondary
         secondary:
           "border border-[var(--atom-border)] text-[var(--atom-primary)] bg-transparent " +
           "hover:border-[color-mix(in srgb, var(--atom-primary) 80%, black)] " +
           "hover:text-[color-mix(in srgb, var(--atom-primary) 90%, black)] " +
-          "hover:bg-[color-mix(in srgb, var(--atom-primary) 8%, white)]",
+          "hover:bg-[var(--atom-button-ghost-hover-bg)] hover:text-[var(--atom-primary)]",
       },
       size: {
         // Normal buttons keep padding + icon size mapping
@@ -52,7 +62,7 @@ const buttonVariants = cva(
       { variant: "iconGhost", size: "md", class: "w-10 h-10 !px-0 aspect-square" },
       { variant: "iconGhost", size: "lg", class: "w-12 h-12 !px-0 aspect-square" },
 
-      // NEW: Square icon buttons — same geometry as round ones, just not full-round
+      // Square icon buttons — same geometry, different radius
       { variant: "iconSquare", size: "sm", class: "w-8 h-8 !px-0 aspect-square" },
       { variant: "iconSquare", size: "md", class: "w-10 h-10 !px-0 aspect-square" },
       { variant: "iconSquare", size: "lg", class: "w-12 h-12 !px-0 aspect-square" },
@@ -61,7 +71,7 @@ const buttonVariants = cva(
       { variant: "iconSquareGhost", size: "md", class: "w-10 h-10 !px-0 aspect-square" },
       { variant: "iconSquareGhost", size: "lg", class: "w-12 h-12 !px-0 aspect-square" },
 
-      // Subtle micro-interaction for all icon-style buttons
+      // Subtle micro-interaction for icon buttons
       { variant: "icon", class: "hover:scale-105 active:scale-95 hover:opacity-90" },
       { variant: "iconGhost", class: "hover:scale-105 active:scale-95 hover:opacity-90" },
       { variant: "iconSquare", class: "hover:scale-105 active:scale-95 hover:opacity-90" },
@@ -71,22 +81,30 @@ const buttonVariants = cva(
   }
 );
 
-
 export interface ButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement>,
     VariantProps<typeof buttonVariants> {
+  /** Radix polymorphism: render as child (e.g., <Link>) */
   asChild?: boolean;
+  /** Enable/disable ripple ink (true by default) */
   ripple?: boolean;
+  /** Controlled pressed state (for toggle-like usage) */
+  "data-pressed"?: "on" | "off" | boolean;
 }
 
 export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ className, variant, size, fullWidth, asChild, ripple = true, onPointerDown, ...props }, ref) => {
+  ({ className, variant, size, fullWidth, asChild, ripple = true, onPointerDown, disabled, ...props }, ref) => {
+    // Radix polymorphism via Slot
     const Comp = asChild ? Slot : "button";
     const btnRef = React.useRef<HTMLButtonElement | null>(null);
 
+    // Keep data-* in sync for Radix-friendly styling/hooks
+    const dataDisabled = disabled ? "" : undefined;
+
     const handlePointerDown = (e: React.PointerEvent<HTMLButtonElement>) => {
       onPointerDown?.(e);
-      if (!ripple || props.disabled || e.button !== 0) return;
+      // Only left button, not disabled, and only when ripple enabled
+      if (!ripple || disabled || e.button !== 0) return;
 
       const el = btnRef.current;
       if (!el) return;
@@ -106,8 +124,15 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       span.style.left = `${x}px`;
       span.style.top = `${y}px`;
 
+      // Transparent-like variants use brand-colored ink for visibility
       const isGhostLike =
-        (variant ?? "primary") === "ghost" || variant === "icon" || variant === "iconGhost" || variant === "secondary";
+        (variant ?? "primary") === "ghost" ||
+        variant === "icon" ||
+        variant === "iconGhost" ||
+        variant === "iconSquare" ||
+        variant === "iconSquareGhost" ||
+        variant === "secondary";
+
       const color = getComputedStyle(el)
         .getPropertyValue(isGhostLike ? "--atom-ripple-color-ghost" : "--atom-ripple-color-solid")
         .trim();
@@ -119,6 +144,10 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
 
     return (
       <Comp
+        // Radix-friendly data attributes
+        data-disabled={dataDisabled}
+        // Consumers can pass data-pressed (e.g., from a Radix Toggle primitive)
+        {...props}
         ref={(node: HTMLButtonElement | null) => {
           btnRef.current = node;
           if (typeof ref === "function") ref(node);
@@ -126,7 +155,7 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         }}
         onPointerDown={handlePointerDown}
         className={cn(buttonVariants({ variant, size, fullWidth }), className)}
-        {...props}
+        disabled={disabled}
       />
     );
   }
