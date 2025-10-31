@@ -34,7 +34,8 @@
   --atom-accent-contrast: #0B0F0E;
 
   /* ========== Text (NO CHANGE to your spec) ========== */
-  --atom-text: #212121;
+  /* --atom-text: #212121; */
+  --atom-text: #626468;
   --atom-text-muted: #616161;      /* “secondary text” */
   --atom-text-inverse: #FFFFFF;
 
@@ -86,7 +87,7 @@
   --atom-radius-round: 9999px;
 
   /* ========== Effects ========== */
-  --atom-focus-ring: rgba(30, 144, 255, 0.5);
+  --atom-focus-ring: var(--atom-primary-400);
   --atom-shadow-sm: 0 1px 2px rgba(0,0,0,0.04);
   --atom-shadow-md: 0 4px 6px rgba(0,0,0,0.10);
   --atom-shadow-lg: 0 10px 15px rgba(0,0,0,0.15);
@@ -212,7 +213,7 @@
   --atom-radius-round: 9999px;
 
   /* Effects */
-  --atom-focus-ring: rgba(30, 144, 255, 0.5);
+  --atom-focus-ring: var(--atom-primary-400);
   --atom-shadow-sm: 0 1px 2px rgba(0,0,0,0.30);
   --atom-shadow-md: 0 4px 12px rgba(0,0,0,0.45);
   --atom-shadow-lg: 0 12px 24px rgba(0,0,0,0.55);
@@ -333,7 +334,7 @@
   --atom-radius-round: 9999px;
 
   /* Effects */
-  --atom-focus-ring: rgba(30, 144, 255, 0.5);
+  --atom-focus-ring: var(--atom-primary-400);
   --atom-shadow-sm: 0 1px 2px rgba(0,0,0,0.04);
   --atom-shadow-md: 0 4px 6px rgba(0,0,0,0.10);
   --atom-shadow-lg: 0 10px 15px rgba(0,0,0,0.15);
@@ -450,7 +451,7 @@
   --atom-radius-round: 9999px;
 
   /* Effects */
-  --atom-focus-ring: rgba(30, 144, 255, 0.5);
+  --atom-focus-ring: var(--atom-primary-400);
   --atom-shadow-sm: 0 1px 2px rgba(0,0,0,0.30);
   --atom-shadow-md: 0 4px 12px rgba(0,0,0,0.45);
   --atom-shadow-lg: 0 12px 24px rgba(0,0,0,0.55);

@@ -4,3 +4,4 @@ import './styles/style.css'
 // import "atom/styles.css"; // once in the host app
 
 export * from './components/button'
+export * from './components/form'
