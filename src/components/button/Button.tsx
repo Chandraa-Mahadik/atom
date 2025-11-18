@@ -21,7 +21,7 @@ const buttonVariants = cva(
         ghost:
           "text-[var(--atom-button-ghost-fg)] bg-[var(--atom-button-ghost-bg)] hover:bg-[var(--atom-button-ghost-hover-bg)]",
 
-        // ✅ New semantic variants (solid)
+        // Semantic solid variants
         success:
           "text-[var(--atom-button-success-fg)] bg-[var(--atom-button-success-bg)] hover:bg-[var(--atom-button-success-bg-hover)]",
         danger:
@@ -57,7 +57,6 @@ const buttonVariants = cva(
       },
       fullWidth: { true: "w-full" },
     },
-    // ⬇ keep your existing compoundVariants + defaultVariants as-is
     compoundVariants: [
       { variant: "icon", size: "sm", class: "w-8 h-8 !px-0 aspect-square" },
       { variant: "icon", size: "md", class: "w-10 h-10 !px-0 aspect-square" },
@@ -87,22 +86,39 @@ const buttonVariants = cva(
 export interface ButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement>,
     VariantProps<typeof buttonVariants> {
-  /** Radix polymorphism: render as child (e.g., <Link>) */
+  /** Render as child element via Radix Slot (e.g. <a>, <Link>) */
   asChild?: boolean;
   /** Enable/disable ripple ink (true by default) */
   ripple?: boolean;
-  /** Controlled pressed state (for toggle-like usage) */
+  /** Optional toggle state hint for styling */
   "data-pressed"?: "on" | "off" | boolean;
 }
 
 export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ className, variant, size, fullWidth, asChild, ripple = true, onPointerDown, disabled, ...props }, ref) => {
-    // Radix polymorphism via Slot
-    const Comp = asChild ? Slot : "button";
+  (
+    {
+      className,
+      variant,
+      size,
+      fullWidth,
+      asChild,
+      ripple = true,
+      onPointerDown,
+      disabled,
+      type,
+      ...props
+    },
+    ref
+  ) => {
+    const isAsChild = !!asChild;
+    const Comp = isAsChild ? Slot : "button";
     const btnRef = React.useRef<HTMLButtonElement | null>(null);
 
-    // Keep data-* in sync for Radix-friendly styling/hooks
+    // Styling/a11y helpers
     const dataDisabled = disabled ? "" : undefined;
+
+    // Default to type="button" to avoid accidental form submits in forms
+    const resolvedType = isAsChild ? undefined : type ?? "button";
 
     const handlePointerDown = (e: React.PointerEvent<HTMLButtonElement>) => {
       onPointerDown?.(e);
@@ -127,7 +143,7 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       span.style.left = `${x}px`;
       span.style.top = `${y}px`;
 
-      // Transparent-like variants use brand-colored ink for visibility
+      // Transparent-like variants use brand-colored ink
       const isGhostLike =
         (variant ?? "primary") === "ghost" ||
         variant === "icon" ||
@@ -147,10 +163,11 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
 
     return (
       <Comp
-        // Radix-friendly data attributes
-        data-disabled={dataDisabled}
-        // Consumers can pass data-pressed (e.g., from a Radix Toggle primitive)
         {...props}
+        // a11y + styling
+        data-disabled={dataDisabled}
+        aria-disabled={isAsChild && disabled ? true : undefined}
+        type={resolvedType}
         ref={(node: HTMLButtonElement | null) => {
           btnRef.current = node;
           if (typeof ref === "function") ref(node);
@@ -158,7 +175,8 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         }}
         onPointerDown={handlePointerDown}
         className={cn(buttonVariants({ variant, size, fullWidth }), className)}
-        disabled={disabled}
+        // only apply real disabled attribute for native button
+        disabled={isAsChild ? undefined : disabled}
       />
     );
   }
