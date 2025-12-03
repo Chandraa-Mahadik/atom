@@ -1,13 +1,16 @@
 {
   "name": "@workokay/atom",
   "version": "0.2.8",
-  "type": "module",
   "main": "./dist/index.cjs",
   "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "style": "./dist/atom.css",
   "files": [
     "dist"
+  ],
+  "sideEffects": [
+    "*.css",
+    "dist/atom.css"
   ],
   "peerDependencies": {
     "react": "^18.0.0 || ^19.0.0",
@@ -34,11 +37,11 @@
     "@radix-ui/react-dialog": "^1.1.15",
     "@radix-ui/react-popover": "^1.1.15",
     "@radix-ui/react-slot": "^1.2.3",
-    "@radix-ui/react-tooltip": "^1.2.8",
-    "react": "^19.1.1",
-    "react-dom": "^19.1.1"
+    "@radix-ui/react-tooltip": "^1.2.8"
   },
   "devDependencies": {
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
     "@chromatic-com/storybook": "^4.1.1",
     "@eslint/js": "^9.33.0",
     "@storybook/addon-a11y": "^9.1.3",
