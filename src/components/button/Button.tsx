@@ -1,5 +1,5 @@
 import * as React from "react";
-import { cva, type VariantProps } from "class-variance-authority";
+import { cva } from "class-variance-authority";
 import { Slot } from "@radix-ui/react-slot";
 import { cn } from "../../lib/cn";
 
@@ -83,7 +83,7 @@ const buttonVariants = cva(
   }
 );
 
-// Explicit unions so they definitely appear in .d.ts
+// Explicit unions – these are what consumers will see
 export type ButtonVariant =
   | "primary"
   | "ghost"
@@ -100,8 +100,7 @@ export type ButtonVariant =
 export type ButtonSize = "sm" | "md" | "lg";
 
 export interface ButtonProps
-  extends React.ButtonHTMLAttributes<HTMLButtonElement>,
-    VariantProps<typeof buttonVariants> {
+  extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   /** Render as child element via Radix Slot (e.g. <a>, <Link>) */
   asChild?: boolean;
   /** Enable/disable ripple ink (true by default) */
@@ -109,7 +108,7 @@ export interface ButtonProps
   /** Optional toggle state hint for styling */
   "data-pressed"?: "on" | "off" | boolean;
 
-  // 👇 Explicit so TS in consumers *always* sees them
+  // Variants exposed to consumers
   variant?: ButtonVariant;
   size?: ButtonSize;
   fullWidth?: boolean;
@@ -174,7 +173,9 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         variant === "secondary";
 
       const color = getComputedStyle(el)
-        .getPropertyValue(isGhostLike ? "--atom-ripple-color-ghost" : "--atom-ripple-color-solid")
+        .getPropertyValue(
+          isGhostLike ? "--atom-ripple-color-ghost" : "--atom-ripple-color-solid"
+        )
         .trim();
       span.style.background = color || "currentColor";
 
@@ -192,7 +193,8 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         ref={(node: HTMLButtonElement | null) => {
           btnRef.current = node;
           if (typeof ref === "function") ref(node);
-          else if (ref) (ref as React.MutableRefObject<HTMLButtonElement | null>).current = node;
+          else if (ref)
+            (ref as React.MutableRefObject<HTMLButtonElement | null>).current = node;
         }}
         onPointerDown={handlePointerDown}
         className={cn(buttonVariants({ variant, size, fullWidth }), className)}
