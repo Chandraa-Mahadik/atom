@@ -83,6 +83,22 @@ const buttonVariants = cva(
   }
 );
 
+// Explicit unions so they definitely appear in .d.ts
+export type ButtonVariant =
+  | "primary"
+  | "ghost"
+  | "success"
+  | "danger"
+  | "warning"
+  | "info"
+  | "icon"
+  | "iconGhost"
+  | "iconSquare"
+  | "iconSquareGhost"
+  | "secondary";
+
+export type ButtonSize = "sm" | "md" | "lg";
+
 export interface ButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement>,
     VariantProps<typeof buttonVariants> {
@@ -92,6 +108,11 @@ export interface ButtonProps
   ripple?: boolean;
   /** Optional toggle state hint for styling */
   "data-pressed"?: "on" | "off" | boolean;
+
+  // 👇 Explicit so TS in consumers *always* sees them
+  variant?: ButtonVariant;
+  size?: ButtonSize;
+  fullWidth?: boolean;
 }
 
 export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
@@ -181,4 +202,5 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
     );
   }
 );
+
 Button.displayName = "Button";
