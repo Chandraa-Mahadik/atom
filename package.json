@@ -5,6 +5,14 @@
   "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "style": "./dist/atom.css",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    },
+    "./dist/atom.css": "./dist/atom.css"
+  },
   "files": [
     "dist"
   ],
@@ -21,7 +29,7 @@
   },
   "scripts": {
     "dev": "vite",
-    "build": "tsc -b && vite build",
+    "build": "tsc -b && vite build && node scripts/fix-types.js",
     "prepare": "tsc -b && vite build",
     "lint": "eslint . --ext .ts,.tsx",
     "format": "prettier --write",

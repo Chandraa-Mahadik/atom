@@ -8,16 +8,17 @@ import { resolve } from 'node:path'
 export default defineConfig({
  plugins: [
    react(),
-   dts({
-     include: ['src'],
-     exclude: [
-       'src/**/*.stories.*',
-       'src/**/*.test.*',
-       'src/setupTests.*',
-       '.storybook/**',
-     ],
-     insertTypesEntry: true, // generates an entry .d.ts for exports map
-   }),
+  dts({
+    include: ['src'],
+    exclude: [
+      'src/**/*.stories.*',
+      'src/**/*.test.*',
+      'src/setupTests.*',
+      '.storybook/**',
+    ],
+    insertTypesEntry: true, // generates an entry .d.ts for exports map
+    outDir: 'dist',
+  }),
  ],
  resolve: { alias: { '@': resolve(__dirname, 'src') } },
  build: {
