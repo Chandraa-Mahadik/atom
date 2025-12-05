@@ -1,0 +1,12 @@
+@import "tailwindcss";
+@import "./tokens.css";   /* your CSS variables */
+@import "./style.css";    /* optional defaults for components */
+
+@layer base {
+  :where(.atom-theme) {
+    color: var(--atom-text);
+    background: var(--atom-bg);
+    font-family: var(--atom-font-sans);
+    font-size: var(--atom-text-md);
+  }
+}

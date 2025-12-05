@@ -1,0 +1,29 @@
+/* src/styles/base.css */
+
+/* scoped defaults */
+:where(.atom-theme) {
+  color: var(--atom-text);
+  font-family: var(--atom-font-sans);
+  font-size: var(--atom-text-md);
+  background: var(--atom-bg);
+}
+
+/* inputs, buttons inherit text styles */
+:where(.atom-theme) button,
+:where(.atom-theme) input,
+:where(.atom-theme) select,
+:where(.atom-theme) textarea {
+  font: inherit;
+  color: inherit;
+  background: transparent;
+  border: 1px solid var(--atom-border);
+  border-radius: var(--atom-radius-1);
+}
+
+/* optional utility surface */
+:where(.atom-theme) .atom-surface {
+  background: var(--atom-surface);
+  border: 1px solid var(--atom-border);
+  border-radius: var(--atom-radius-2);
+  box-shadow: var(--atom-shadow-1);
+}
