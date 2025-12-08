@@ -1,5 +1,3 @@
-
-
 :where(.atom-theme) {
   /* keep your existing base tokens… */
   --atom-button-bg: var(--atom-primary);
@@ -511,4 +509,84 @@
 
   --atom-ring-color: var(--atom-primary-400);
   --atom-ring-offset: var(--atom-bg);     /* keeps halo clean on any surface */
+}
+
+/* ====================================================================== */
+/* Atom fallback utilities for token-based Tailwind arbitrary classes     */
+/* These ensure colors work even if consumer Tailwind doesn’t generate    */
+/* bg-[var(--…)] / text-[var(--…)] utilities from the compiled bundle.    */
+/* ====================================================================== */
+
+/* Primary button */
+:where(.atom-theme) .bg-\[var\(--atom-button-bg\)\] {
+  background-color: var(--atom-button-bg);
+}
+:where(.atom-theme) .text-\[var\(--atom-button-fg\)\] {
+  color: var(--atom-button-fg);
+}
+:where(.atom-theme) .hover\:bg-\[var\(--atom-button-bg-hover\)\]:hover {
+  background-color: var(--atom-button-bg-hover);
+}
+
+/* Ghost button */
+:where(.atom-theme) .bg-\[var\(--atom-button-ghost-bg\)\] {
+  background-color: var(--atom-button-ghost-bg);
+}
+:where(.atom-theme) .text-\[var\(--atom-button-ghost-fg\)\] {
+  color: var(--atom-button-ghost-fg);
+}
+:where(.atom-theme) .hover\:bg-\[var\(--atom-button-ghost-hover-bg\)\]:hover {
+  background-color: var(--atom-button-ghost-hover-bg);
+}
+
+/* Success button */
+:where(.atom-theme) .bg-\[var\(--atom-button-success-bg\)\] {
+  background-color: var(--atom-button-success-bg);
+}
+:where(.atom-theme) .text-\[var\(--atom-button-success-fg\)\] {
+  color: var(--atom-button-success-fg);
+}
+:where(.atom-theme) .hover\:bg-\[var\(--atom-button-success-bg-hover\)\]:hover {
+  background-color: var(--atom-button-success-bg-hover);
+}
+
+/* Warning button */
+:where(.atom-theme) .bg-\[var\(--atom-button-warning-bg\)\] {
+  background-color: var(--atom-button-warning-bg);
+}
+:where(.atom-theme) .text-\[var\(--atom-button-warning-fg\)\] {
+  color: var(--atom-button-warning-fg);
+}
+:where(.atom-theme) .hover\:bg-\[var\(--atom-button-warning-bg-hover\)\]:hover {
+  background-color: var(--atom-button-warning-bg-hover);
+}
+
+/* Danger button */
+:where(.atom-theme) .bg-\[var\(--atom-button-danger-bg\)\] {
+  background-color: var(--atom-button-danger-bg);
+}
+:where(.atom-theme) .text-\[var\(--atom-button-danger-fg\)\] {
+  color: var(--atom-button-danger-fg);
+}
+:where(.atom-theme) .hover\:bg-\[var\(--atom-button-danger-bg-hover\)\]:hover {
+  background-color: var(--atom-button-danger-bg-hover);
+}
+
+/* Info button */
+:where(.atom-theme) .bg-\[var\(--atom-button-info-bg\)\] {
+  background-color: var(--atom-button-info-bg);
+}
+:where(.atom-theme) .text-\[var\(--atom-button-info-fg\)\] {
+  color: var(--atom-button-info-fg);
+}
+:where(.atom-theme) .hover\:bg-\[var\(--atom-button-info-bg-hover\)\]:hover {
+  background-color: var(--atom-button-info-bg-hover);
+}
+
+/* Secondary outline – minimal fallback for border + primary text */
+:where(.atom-theme) .border-\[var\(--atom-border\)\] {
+  border-color: var(--atom-border);
+}
+:where(.atom-theme) .text-\[var\(--atom-primary\)\] {
+  color: var(--atom-primary);
 }

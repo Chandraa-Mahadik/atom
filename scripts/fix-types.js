@@ -18,3 +18,4 @@ export {};
 fs.writeFileSync(distIndexPath, fixedContent, 'utf8');
 console.log('✓ Fixed dist/index.d.ts for better type resolution');
 
+
