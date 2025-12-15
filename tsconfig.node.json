@@ -6,8 +6,6 @@
     "lib": ["ES2022"],
     "module": "ESNext",
 
-    "allowImportingTsExtensions": true,
-
     "moduleResolution": "Bundler",
     "verbatimModuleSyntax": true,
     "moduleDetection": "force",
