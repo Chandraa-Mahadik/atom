@@ -16,6 +16,7 @@
     "skipLibCheck": true,
     "composite": true,
 
+    "jsx": "react-jsx",
     "noEmit": true
   },
   "include": ["vite.config.ts", "vitest.config.ts", ".storybook/**/*"]

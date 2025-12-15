@@ -29,7 +29,7 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc -p tsconfig.lib.json && vite build",
-    "prepare": "tsc -b && vite build",
+    "prepare": "npm run build",
     "lint": "eslint . --ext .ts,.tsx",
     "format": "prettier --write",
     "preview": "vite preview",

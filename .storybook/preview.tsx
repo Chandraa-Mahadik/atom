@@ -1,5 +1,5 @@
 // .storybook/preview.tsx
-import type { Preview } from "@storybook/react";
+import type { Preview, Decorator } from "@storybook/react";
 import "../src/styles/tailwind.css"; // 👈 MUST exist & be valid
 import "../src/styles/tokens.css"; // 👈 MUST exist & be valid
 import "../src/styles/ripple.css"; // 👈 MUST exist & be valid
@@ -13,8 +13,17 @@ export const globalTypes = {
   },
 };
 
-const withTheme = (Story, ctx) => {
-  const theme = ctx.globals.theme ?? "light";
+// const withTheme = (Story, ctx) => {
+//   const theme = ctx.globals.theme ?? "light";
+//   return (
+//     <div className="atom-theme" data-theme={theme} style={{ minHeight: "100vh", padding: 16 }}>
+//       <Story />
+//     </div>
+//   );
+// };
+
+const withTheme: Decorator = (Story, ctx) => {
+  const theme = (ctx.globals?.theme as string) ?? "light";
   return (
     <div className="atom-theme" data-theme={theme} style={{ minHeight: "100vh", padding: 16 }}>
       <Story />
