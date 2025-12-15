@@ -1,8 +1,6 @@
 {
   "extends": "./tsconfig.json",
   "compilerOptions": {
-    "composite": false,
-
     "declaration": true,
     "declarationMap": true,
     "emitDeclarationOnly": true,
@@ -18,9 +16,9 @@
   "exclude": [
     "src/**/*.test.*",
     "src/**/*.stories.*",
-    "src/dev/**",
     "src/setupTests.*",
     "src/main.*",
-    "src/App.*"
+    "src/App.*",
+    "src/dev/**"
   ]
 }

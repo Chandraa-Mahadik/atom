@@ -17,8 +17,7 @@
     "dist"
   ],
   "sideEffects": [
-    "*.css",
-    "dist/atom.css"
+    "*.css"
   ],
   "peerDependencies": {
     "react": "^18.0.0 || ^19.0.0",
@@ -29,7 +28,7 @@
   },
   "scripts": {
     "dev": "vite",
-    "build": "tsc -b && vite build && node scripts/fix-types.js",
+    "build": "tsc -p tsconfig.lib.json && vite build",
     "prepare": "tsc -b && vite build",
     "lint": "eslint . --ext .ts,.tsx",
     "format": "prettier --write",

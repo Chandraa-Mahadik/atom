@@ -7,6 +7,8 @@
     "module": "ESNext",
     "jsx": "react-jsx",
 
+    "allowImportingTsExtensions": true,
+
     "moduleResolution": "Bundler",
     "verbatimModuleSyntax": true,
     "moduleDetection": "force",
