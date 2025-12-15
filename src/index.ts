@@ -5,6 +5,7 @@
 import './styles/bundle.css'
 
 export * from './components/button'
+export * from './components/badge'
 export * from './components/form'
 
 // Optionally re-export icons and hooks too

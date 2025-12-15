@@ -19,6 +19,10 @@ dist-ssr
 *.local
 storybook-static
 
+# Not to commit generated declaration files in source
+src/**/*.d.ts
+src/**/*.d.ts.map
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
