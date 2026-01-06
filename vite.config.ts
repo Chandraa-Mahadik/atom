@@ -1,28 +1,13 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
-import dts from "vite-plugin-dts";
 import { resolve } from "node:path";
 
 export default defineConfig({
-  plugins: [
-    react(),
-    dts({
-      entryRoot: "src",
-      include: ["src"],
-      exclude: [
-        "src/**/*.stories.*",
-        "src/**/*.test.*",
-        "src/setupTests.*",
-        "src/main.*",
-        "src/App.*",
-        ".storybook/**",
-      ],
-      outDir: "dist",
-      insertTypesEntry: true,
-    }),
-  ],
+  publicDir: false,
+  plugins: [react()],
   resolve: { alias: { "@": resolve(__dirname, "src") } },
   build: {
+    emptyOutDir: false,
     lib: {
       entry: resolve(__dirname, "src/index.ts"),
       name: "AtomUI",
@@ -40,6 +25,5 @@ export default defineConfig({
       },
     },
     sourcemap: true,
-    emptyOutDir: true,
   },
 });
