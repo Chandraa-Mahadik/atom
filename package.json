@@ -11,7 +11,7 @@
       "import": "./dist/index.js",
       "require": "./dist/index.cjs"
     },
-    "./dist/atom.css": "./dist/atom.css"
+    "./atom.css": "./dist/atom.css"
   },
   "files": [
     "dist"
