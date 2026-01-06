@@ -7,13 +7,13 @@ export default defineConfig({
   plugins: [react()],
   resolve: { alias: { "@": resolve(__dirname, "src") } },
   build: {
-    emptyOutDir: false,
     lib: {
       entry: resolve(__dirname, "src/index.ts"),
       name: "AtomUI",
       formats: ["es", "cjs"],
       fileName: (format) => (format === "es" ? "index.js" : "index.cjs"),
     },
+    cssCodeSplit: false, // ✅ force single CSS output
     rollupOptions: {
       external: ["react", "react-dom"],
       output: {
@@ -25,5 +25,6 @@ export default defineConfig({
       },
     },
     sourcemap: true,
+    emptyOutDir: false
   },
 });
