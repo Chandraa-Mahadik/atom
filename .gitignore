@@ -49,3 +49,8 @@ test-results
 # Environment variables
 .env.local
 .env.*.local
+
+# Purge generated .d.ts from src/ (artifact cleanup and never commit)
+src/**/*.d.ts
+src/**/*.d.ts.map
+
