@@ -7,6 +7,9 @@
 // But TS may still emit a reference — that’s fine because it’s TS, not CSS.
 // the runtime/styles via approach did not work ( atom.css file was missing in dist ) so for now : import './styles/bundle.css' this is used. and it is working.
 
+// NOTE : By doing this vite will emit dist/atom.css because CSS is in the build graph.
+import "./styles/atom.css";
+
 export * from './components/button'
 export * from './components/badge'
 export * from './components/form'
