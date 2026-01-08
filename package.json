@@ -38,7 +38,9 @@
     "test:watch": "vitest --ui --watch",
     "test:coverage": "vitest run --coverage",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "typecheck": "tsc -p tsconfig.lib.json --noEmit false",
+    "prepublishOnly": "npm run build && npm test"
   },
   "dependencies": {
     "@radix-ui/react-slot": "^1.2.4",
