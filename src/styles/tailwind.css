@@ -1,6 +1,5 @@
 @import "tailwindcss";
 @import "./tokens.css";   /* your CSS variables */
-@import "./style.css";    /* optional defaults for components */
 
 @layer base {
   :where(.atom-theme) {
