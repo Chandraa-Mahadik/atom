@@ -2,8 +2,8 @@
 
 // Import the complete CSS bundle (tokens, ripple, base styles)
 // This will be processed by Vite and output to dist/atom.css
-import './styles/bundle.css' // NOTE : Not to import in this manner as direct styles. but as below.
-import "./runtime/styles"; //  Now in types, it will import ./runtime/styles (a TS module), not CSS directly.
+// import './styles/bundle.css' // NOTE : Not to import in this manner as direct styles. but as below.
+// import "./runtime/styles"; //  Now in types, it will import ./runtime/styles (a TS module), not CSS directly.
 // But TS may still emit a reference — that’s fine because it’s TS, not CSS.
 // the runtime/styles via approach did not work ( atom.css file was missing in dist ) so for now : import './styles/bundle.css' this is used. and it is working.
 
