@@ -49,3 +49,12 @@ test-results
 # Environment variables
 .env.local
 .env.*.local
+
+# Purge generated .d.ts from src/ (artifact cleanup and never commit)
+# Never commit generated declaration artifacts in src/
+src/**/*.d.ts
+src/**/*.d.ts.map
+
+# But keep Vite env typing file
+!src/vite-env.d.ts
+
