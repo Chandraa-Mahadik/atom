@@ -13,3 +13,7 @@ export * from './components/form'
 
 // Optionally re-export icons and hooks too
 export * from "./hooks";
+
+// Re-export lib utilities (e.g. class variance authority helpers)
+// Exporting lib/cn so that consumers can use utility types and functions from this package
+export * from "./lib/cn";
