@@ -16,4 +16,5 @@ export * from "./hooks";
 
 // Re-export lib utilities (e.g. class variance authority helpers)
 // Exporting lib/cn so that consumers can use utility types and functions from this package
-export * from "./lib/cn";
+// export * from "./lib/cn";
+// NOTE : For now as a decision cn will be internal only.
