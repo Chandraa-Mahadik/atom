@@ -9,7 +9,7 @@ import { cn } from "../../lib/cn";
 const cardVariants = cva(
   [
     "rounded-lg",
-    "bg-[var(--atom-theme-bg)]",
+    "bg-[var(--atom-theme-surface-primary)]",
     "border border-[color-mix(in_srgb,var(--atom-theme-border-primary)_60%,transparent)]",
     "transition-all duration-200",
     "overflow-hidden",
