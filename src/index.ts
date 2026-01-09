@@ -16,6 +16,7 @@ export * from './components/form'
 
 export * from './components/avatar'
 export * from './components/calendar'
+export * from './components/card'
 
 
 // Optionally re-export icons and hooks too
