@@ -52,16 +52,29 @@
   /* --atom-text: #212121; */
   --atom-text: #626468;
   --atom-text-muted: #616161; /* “secondary text” */
+  /* --atom-text-muted: #8A8D91; “secondary text” */
   --atom-text-inverse: #FFFFFF;
+
+  --atom-text-primary: #626468;
+  --atom-text-secondary: #8A8D91;
+
+  --atom-theme-text-primary: #253233;
+  --atom-theme-text-secondary: #546E73;
 
   /* ========== Backgrounds (NO CHANGE) ========== */
   --atom-bg: #F9FAFB; /* required */
   --atom-surface: #FFFFFF;
   --atom-surface-alt: #F5F5F5;
 
+  --atom-theme-surface-primary: #ffffff;
+  --atom-theme-surface-secondary: #2e9995;
+  --atom-theme-surface-tertiary: #e6f3f4;
+
   /* ========== Borders (NO CHANGE) ========== */
   --atom-border: #E0E0E0; /* divider */
   --atom-border-strong: #BDBDBD;
+
+  --atom-theme-border-primary: #cfe7e8;
 
   /* ========== Status (NO CHANGE) ========== */
   --atom-success: #43A047;
@@ -80,6 +93,13 @@
   --atom-text-md: 14px;
   --atom-text-lg: 16px;
   --atom-text-xl: 18px;
+
+  --atom-text-h1:32px;
+  --atom-text-h2:32px;
+  --atom-text-h3:32px;
+  --atom-text-h4:32px;
+  --atom-text-h5:32px;
+  --atom-text-h6:32px;
 
   --atom-line-height: 1.5;
   --atom-font-weight-normal: 400;
@@ -105,6 +125,8 @@
 
   /* ========== Effects ========== */
   --atom-focus-ring: var(--atom-primary-400);
+  --atom-shadow-xs: rgba(82, 82, 82, 0.05) 0px 0px 0px 1px;
+  --atom-shadow-xs2:rgba(0, 0, 0, 0.05) 0px 1px 2px 0px;
   --atom-shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.04);
   --atom-shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
   --atom-shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.15);
@@ -211,15 +233,27 @@
   --atom-text-muted: #BDBDBD;
   --atom-text-inverse: #0F0F0F;
 
+  --atom-text-primary: #E0E0E0;
+  --atom-text-secondary: #BDBDBD;
+
+  --atom-theme-text-primary: #E8F0F0;
+  --atom-theme-text-secondary: #A8BCBE;
+
   /* Backgrounds */
   --atom-bg: #121212;
   --atom-surface: #1A1A1A;
   --atom-surface-alt: #222222;
 
+  --atom-theme-surface-primary: #1a2425;
+  --atom-theme-surface-secondary: #2e9995;
+  --atom-theme-surface-tertiary: #1f3435;
+
   /* Borders */
   --atom-border: #2C2C2C;
   --atom-border-strong: #3A3A3A;
 
+  --atom-theme-border-primary: #2a4142;
+  
   /* Status */
   --atom-success: #43A047;
   --atom-warning: #FB8C00;
