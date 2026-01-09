@@ -14,6 +14,9 @@ export * from './components/button'
 export * from './components/badge'
 export * from './components/form'
 
+export * from './components/avatar'
+
+
 // Optionally re-export icons and hooks too
 export * from "./hooks";
 
