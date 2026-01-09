@@ -25,7 +25,7 @@ export const globalTypes = {
 const withTheme: Decorator = (Story, ctx) => {
   const theme = (ctx.globals?.theme as string) ?? "light";
   return (
-    <div className="atom-theme" data-theme={theme} style={{ minHeight: "100vh", padding: 16 }}>
+    <div id="app-root" className="atom-theme" data-theme={theme} style={{ minHeight: "100vh", padding: 16 }}>
       <Story />
     </div>
   );

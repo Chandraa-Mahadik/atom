@@ -19,6 +19,7 @@ export * from './components/calendar'
 export * from './components/card'
 export * from './components/checkbox'
 export * from './components/contentCard'
+export * from './components/dialog'
 
 
 // Optionally re-export icons and hooks too
