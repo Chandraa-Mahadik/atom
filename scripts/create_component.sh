@@ -17,7 +17,7 @@ touch \
   "$BASE_DIR/${NAME}Variants.ts" \
   "$BASE_DIR/${PASCAL_NAME}.tsx" \
   "$BASE_DIR/${PASCAL_NAME}.test.tsx" \
-  "$BASE_DIR/${PASCAL_NAME}.Stories.tsx" \
+  "$BASE_DIR/${PASCAL_NAME}.stories.tsx" \
   "$BASE_DIR/index.ts"
 
 echo "✅ Component '$NAME' created successfully"
