@@ -22,6 +22,7 @@ export * from './components/contentCard'
 export * from './components/dialog'
 export * from './components/dialog'
 export * from './components/heading'
+export * from './components/paper'
 
 
 // Optionally re-export icons and hooks too
