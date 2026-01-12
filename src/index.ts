@@ -23,6 +23,7 @@ export * from './components/dialog'
 export * from './components/dialog'
 export * from './components/heading'
 export * from './components/paper'
+export * from './components/progressBar'
 
 
 // Optionally re-export icons and hooks too
