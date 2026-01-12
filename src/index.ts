@@ -24,6 +24,7 @@ export * from './components/dialog'
 export * from './components/heading'
 export * from './components/paper'
 export * from './components/progressBar'
+export * from './components/radio'
 
 
 // Optionally re-export icons and hooks too
