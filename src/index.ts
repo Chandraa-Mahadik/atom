@@ -20,7 +20,8 @@ export * from './components/card'
 export * from './components/checkbox'
 export * from './components/contentCard'
 export * from './components/dialog'
-export * from './components/drawer'
+export * from './components/dialog'
+export * from './components/heading'
 
 
 // Optionally re-export icons and hooks too
