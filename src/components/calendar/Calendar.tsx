@@ -112,11 +112,6 @@ export function Calendar({
           defaults.dropdown
         ),
 
-        // caption_label: cn(
-        //   "flex items-center gap-2 select-none text-md font-medium",
-        //   defaults.caption_label
-        // ),
-
         caption_label: cn(
           "inline-flex items-center gap-2 select-none text-md font-medium",
           defaults.caption_label
@@ -130,17 +125,9 @@ export function Calendar({
         ),
 
         week: cn("mt-2 flex w-full", defaults.week),
-        // day: cn(
-        //   "relative aspect-square w-8 h-8 p-0 text-center",
-        //   defaults.day
-        // ),
 
         day: cn(
           "relative aspect-square w-8 h-8 p-0 text-center",
-
-        //   // Today: outline only, no fill
-        //   "data-[today=true]:bg-transparent",
-        //   "data-[today=true]:hover:bg-[color-mix(in_srgb,var(--atom-border)_70%,transparent)]",
 
         defaults.day
         ),
@@ -157,16 +144,8 @@ export function Calendar({
         //   "relative",
           "rounded-md",
           "bg-[var(--atom-primary-100)]",
-        //   "bg-[var(--atom-theme-surface-tertiary)]",
           defaults.today
         ),
-
-        // today: cn(
-        //   "rounded-md",
-        //   "bg-[color-mix(in_srgb,var(--atom-border)_35%,transparent)]",
-        //   "ring-1 ring-[var(--atom-primary)] ring-offset-1 ring-offset-[var(--atom-bg)]",
-        //   defaults.today
-        // ),
 
         ...classNames,
       }}
