@@ -192,6 +192,11 @@
   --atom-ripple-color-solid: var(--atom-button-fg);
   --atom-ripple-color-ghost: var(--atom-primary);
   --atom-ripple-opacity: 0.22;
+  
+  /*Skeleton  */
+  --atom-skeleton-bg-color: rgba(0, 0, 0, 0.08);
+  --atom-skeleton-shimmer-color: rgba(255, 255, 255, 0.2);
+
 }
 
 /* Deep Teal — DARK */
@@ -253,7 +258,7 @@
   --atom-border-strong: #3A3A3A;
 
   --atom-theme-border-primary: #2a4142;
-  
+
   /* Status */
   --atom-success: #43A047;
   --atom-warning: #FB8C00;
@@ -342,6 +347,10 @@
   --atom-ripple-color-solid: var(--atom-button-fg);
   --atom-ripple-color-ghost: var(--atom-primary);
   --atom-ripple-opacity: 0.24;
+    
+  /*Skeleton  */
+  --atom-skeleton-bg-color: rgba(0, 0, 0, 0.08);
+  --atom-skeleton-shimmer-color: rgba(255, 255, 255, 0.2);
 }
 
 /* Sapphire Cyan — LIGHT */
