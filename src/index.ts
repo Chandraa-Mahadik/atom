@@ -33,6 +33,7 @@ export * from './components/tabs'
 export * from './components/text'
 export * from './components/textArea'
 export * from './components/tooltip'
+export * from './components/inputNumber'
 
 
 // Optionally re-export icons and hooks too
