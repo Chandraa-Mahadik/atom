@@ -5,7 +5,7 @@
     "noEmit": true,
 
     "target": "ES2022",
-    "lib": ["ES2022"],
+    "lib": ["ES2022", "DOM", "DOM.Iterable"],
     "module": "ESNext",
 
     "moduleResolution": "Bundler",
@@ -16,7 +16,15 @@
     "skipLibCheck": true,
 
     "jsx": "react-jsx",
-    "types": ["node"],
+    "types": ["node", "vitest/globals", "@testing-library/jest-dom"],
   },
-  "include": ["vite.config.ts", "vitest.config.ts", ".storybook/**/*"]
+  // "include": ["vite.config.ts", "vitest.config.ts", ".storybook/**/*"]
+  "include": [
+    "vite.config.ts",
+    "vitest.config.ts",
+    ".storybook/**/*",
+    "src/setupTests.ts",
+    "src/**/*.test.*",
+    "src/**/*.stories.*"
+  ]
 }

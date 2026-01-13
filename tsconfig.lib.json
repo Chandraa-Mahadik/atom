@@ -25,6 +25,7 @@
     ".storybook/**",
     "stories/**",
     "docs/**",
-    "dist/**"
+    "dist/**",
+    "node_modules/**"
   ]
 }
