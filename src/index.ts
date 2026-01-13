@@ -31,6 +31,7 @@ export * from './components/statCardC'
 export * from './components/dataTable'
 export * from './components/tabs'
 export * from './components/text'
+export * from './components/textArea'
 
 
 // Optionally re-export icons and hooks too
