@@ -32,6 +32,7 @@ export * from './components/dataTable'
 export * from './components/tabs'
 export * from './components/text'
 export * from './components/textArea'
+export * from './components/tooltip'
 
 
 // Optionally re-export icons and hooks too
