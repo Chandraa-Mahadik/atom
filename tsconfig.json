@@ -1,12 +1,10 @@
 {
   "files": [],
   "references": [
-    { "path": "./tsconfig.app.json" },
     { "path": "./tsconfig.node.json" },
     { "path": "./tsconfig.lib.json" }
   ],
   "compilerOptions": {
-    "noEmit": true,
 
     "target": "ES2022",
     "module": "ESNext",
@@ -27,6 +25,5 @@
     "paths": {
       "@/*": ["src/*"]
     }
-  },
-  "include": ["src"]
+  }
 }
