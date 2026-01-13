@@ -28,6 +28,7 @@ export * from './components/radio'
 export * from './components/statCardA'
 export * from './components/statCardB'
 export * from './components/statCardC'
+export * from './components/dataTable'
 
 
 // Optionally re-export icons and hooks too
