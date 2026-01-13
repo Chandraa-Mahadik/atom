@@ -29,6 +29,7 @@ export * from './components/statCardA'
 export * from './components/statCardB'
 export * from './components/statCardC'
 export * from './components/dataTable'
+export * from './components/tabs'
 
 
 // Optionally re-export icons and hooks too
