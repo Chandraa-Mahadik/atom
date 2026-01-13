@@ -25,6 +25,9 @@ export * from './components/heading'
 export * from './components/paper'
 export * from './components/progressBar'
 export * from './components/radio'
+export * from './components/statCardA'
+export * from './components/statCardB'
+export * from './components/statCardC'
 
 
 // Optionally re-export icons and hooks too
