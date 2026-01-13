@@ -23,8 +23,6 @@
     "vite.config.ts",
     "vitest.config.ts",
     ".storybook/**/*",
-    "src/setupTests.ts",
-    "src/**/*.test.*",
-    "src/**/*.stories.*"
+    "src/**/*",
   ]
 }
