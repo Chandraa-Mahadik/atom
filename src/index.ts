@@ -35,6 +35,7 @@ export * from './components/textArea'
 export * from './components/tooltip'
 export * from './components/inputNumber'
 export * from './components/dropdown'
+export * from './components/popover'
 
 
 // Optionally re-export icons and hooks too
