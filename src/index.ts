@@ -12,7 +12,7 @@ import "./styles/atom.css";
 
 export * from './components/button'
 export * from './components/badge'
-export * from './components/form'
+// export * from './components/form'
 
 export * from './components/avatar'
 export * from './components/calendar'
@@ -36,6 +36,7 @@ export * from './components/tooltip'
 export * from './components/inputNumber'
 export * from './components/dropdown'
 export * from './components/popover'
+export * from './components/input'
 
 
 // Optionally re-export icons and hooks too
