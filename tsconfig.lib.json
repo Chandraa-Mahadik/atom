@@ -1,8 +1,11 @@
 {
   "extends": "./tsconfig.json",
   "compilerOptions": {
-    "noEmit": false,
+    "types": ["vitest/globals"],
+    "composite": true,
 
+    "noEmit": false,
+    
     "declaration": true,
     "declarationMap": true,
     "emitDeclarationOnly": true,
@@ -22,6 +25,7 @@
     ".storybook/**",
     "stories/**",
     "docs/**",
-    "dist/**"
+    "dist/**",
+    "node_modules/**"
   ]
 }
