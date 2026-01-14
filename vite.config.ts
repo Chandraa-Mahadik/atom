@@ -5,27 +5,54 @@ import svgr from "vite-plugin-svgr";
 
 export default defineConfig({
   publicDir: false,
-  plugins: [react(), svgr()],
-  resolve: { alias: { "@": resolve(__dirname, "src") } },
+
+  plugins: [
+    react(),
+    svgr()
+  ],
+
+  resolve: {
+    alias: {
+      "@": resolve(__dirname, "src")
+    }
+  },
+
+  // ✅ CRITICAL: prevent dep-scan from touching stories
+  optimizeDeps: {
+    exclude: [
+      "**/*.stories.tsx",
+      "**/*.stories.ts",
+      "**/*.story.tsx",
+      "**/*.story.ts"
+    ]
+  },
+
   build: {
     lib: {
       entry: resolve(__dirname, "src/index.ts"),
       name: "AtomUI",
       formats: ["es", "cjs"],
-      fileName: (format) => (format === "es" ? "index.js" : "index.cjs"),
+      fileName: (format) =>
+        format === "es" ? "index.js" : "index.cjs"
     },
-    cssCodeSplit: false, // ✅ force single CSS output
+
+    cssCodeSplit: false,
+
     rollupOptions: {
       external: ["react", "react-dom"],
       output: {
-        globals: { react: "React", "react-dom": "ReactDOM" },
+        globals: {
+          react: "React",
+          "react-dom": "ReactDOM"
+        },
         assetFileNames: (assetInfo) => {
           if (assetInfo.name?.endsWith(".css")) return "atom.css";
           return assetInfo.name ?? "[name][extname]";
-        },
-      },
+        }
+      }
     },
+
     sourcemap: true,
     emptyOutDir: false
-  },
+  }
 });
