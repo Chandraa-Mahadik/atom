@@ -11,6 +11,9 @@ import {
  * Root & Trigger
  * ------------------------------------------------------------------------------------------------- */
 
+export type DialogProps =
+  React.ComponentPropsWithoutRef<typeof DialogPrimitive.Root>;
+
 const Dialog = DialogPrimitive.Root;
 const DialogTrigger = DialogPrimitive.Trigger;
 
