@@ -17,15 +17,6 @@ export default defineConfig({
     }
   },
 
-  // ✅ CRITICAL: prevent dep-scan from touching stories
-  optimizeDeps: {
-    exclude: [
-      "**/*.stories.tsx",
-      "**/*.stories.ts",
-      "**/*.story.tsx",
-      "**/*.story.ts"
-    ]
-  },
 
   build: {
     lib: {
