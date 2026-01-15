@@ -141,3 +141,12 @@ export const ReadOnly: Story = {
     </div>
   ),
 }
+
+export const WithLabelAndRequired = {
+  args: {
+    label: "Email address",
+    required: true,
+    placeholder: "you@example.com",
+  },
+}
+

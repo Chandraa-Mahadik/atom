@@ -168,3 +168,25 @@ describe("Input", () => {
     expect(input).toHaveValue('test');
   });
 });
+
+it("renders label with required indicator", () => {
+  render(<Input label="Email" required />)
+  expect(screen.getByText("Email")).toBeInTheDocument()
+  expect(screen.getByText("*")).toBeInTheDocument()
+})
+
+it("shows required error when blurred empty", () => {
+  render(<Input label="Name" required />)
+  const input = screen.getByRole("textbox")
+  fireEvent.blur(input)
+  expect(screen.getByText("This field is required")).toBeInTheDocument()
+})
+
+it("does not show required error when value is present", () => {
+  render(<Input label="Name" required value="John" />)
+  const input = screen.getByRole("textbox")
+  fireEvent.blur(input)
+  expect(
+    screen.queryByText("This field is required"),
+  ).not.toBeInTheDocument()
+})
