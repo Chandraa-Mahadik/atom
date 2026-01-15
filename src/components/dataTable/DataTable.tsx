@@ -35,7 +35,7 @@ export interface DataTableOptions {
   exportFormat?: 'csv' | 'excel'
 }
 
-interface DataTableProps {
+export interface DataTableProps {
   columns: Column[]
   data: DataRow[]
   pagination?: boolean
