@@ -70,3 +70,4 @@ export type ProgressBarIndicatorVariant =
 
 export type ProgressBarSize =
   VariantProps<typeof progressTrackVariants>["size"];
+
