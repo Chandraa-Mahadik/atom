@@ -1,3 +1,5 @@
+# the folder structure has drifted a bit from the earlier created version and requires update.. will be updated later..
+
 atom/
 ├─ package.json
 ├─ tsconfig.json
