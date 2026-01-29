@@ -18,7 +18,7 @@ export * from './components/card'
 export * from './components/checkbox'
 export * from './components/contentCard'
 export * from './components/dialog'
-export * from './components/dialog'
+export * from './components/drawer'
 export * from './components/heading'
 export * from './components/paper'
 export * from './components/progressBar'
@@ -35,6 +35,7 @@ export * from './components/inputNumber'
 export * from './components/dropdown'
 export * from './components/popover'
 export * from './components/input'
+export * from './components/switch'
 
 
 // Optionally re-export icons and hooks too
