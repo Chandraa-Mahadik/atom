@@ -130,6 +130,10 @@ function MyComponent() {
 />
 ```
 
+NOTE : 
+⚠️ Refs do not automatically pass through wrapper components; any component wrapping a ref-forwarding child **must also use `forwardRef`**, as `ref` is not a normal prop and is ignored by regular function components.
+
+
 ## Features
 
 - ✅ **Teal Green Theme** - Beautiful teal green primary color (`#00796B`) by default
