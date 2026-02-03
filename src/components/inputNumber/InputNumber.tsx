@@ -286,9 +286,11 @@ export const NumberInput = React.forwardRef<HTMLInputElement, NumberInputProps>(
         if (e.key === 'ArrowUp') {
           e.preventDefault()
           handleIncrement()
+          return
         } else if (e.key === 'ArrowDown') {
           e.preventDefault()
           handleDecrement()
+          return
         }
 
         props.onKeyDown?.(e)
