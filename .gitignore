@@ -58,3 +58,5 @@ src/**/*.d.ts.map
 # But keep Vite env typing file
 !src/vite-env.d.ts
 
+#dev reference folder
+dynamis_figma_make/

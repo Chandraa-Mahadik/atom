@@ -15,26 +15,26 @@
 /* :where(.atom-theme)[data-theme="teal-light"] { */
 :where(.atom-theme)[data-theme="light"] {
   /* ========== Brand / Primary (Deep Teal) ========== */
-  --atom-primary-50: #E0F2F1;
-  --atom-primary-100: #B2DFDB;
-  --atom-primary-200: #80CBC4;
-  --atom-primary-300: #4DB6AC;
-  --atom-primary-400: #26A69A;
-  --atom-primary-500: #009688;
-  --atom-primary-600: #00897B;
-  --atom-primary-700: #00796B; /* base */
-  --atom-primary-800: #00695C;
-  --atom-primary-900: #004D40;
+  --atom-primary-50: #FCFEFE;
+  --atom-primary-100: #E6F3F4;
+  --atom-primary-200: #B8E4E9;
+  --atom-primary-300: #B2DFDC;
+  --atom-primary-400: #8AD2D7;
+  --atom-primary-500: #58BFC1;
+  --atom-primary-600: #2E9995;
+  --atom-primary-700: #2E9995; /* base */
+  --atom-primary-800: #1A5855;
+  --atom-primary-900: #0F1819;
 
-  --atom-primary: var(--atom-primary-700);
+  --atom-primary: #2E9995;
   --atom-primary-contrast: #FFFFFF;
 
   /* Existing accent (teal) */
-  --atom-accent: var(--atom-primary-400);
-  --atom-accent-contrast: #0B0F0E;
+  --atom-accent: #B8E4E9;
+  --atom-accent-contrast: #253233;
 
   /* NEW: Neutral + optional overrides for Accent/Info */
-  --atom-neutral: rgb(84, 110, 115);
+  --atom-neutral: #546E73;
 
   /* Optional: purple accent you mentioned (keep commented unless you want accent = purple) */
   --atom-accent-custom: oklch(0.558 0.288 302.321);
@@ -45,42 +45,42 @@
   /* --atom-info: var(--atom-info-custom); */
 
   /* Optional: extra “green-ish” status colors (do not replace success globally) */
-  --atom-status-validated: rgb(102, 191, 165);
-  --atom-status-verified: rgb(46, 153, 149);
+  --atom-status-validated: #66BFA5;
+  --atom-status-verified: #2E9995;
 
   /* ========== Text (NO CHANGE to your spec) ========== */
   /* --atom-text: #212121; */
-  --atom-text: #626468;
-  --atom-text-muted: #616161; /* “secondary text” */
+  --atom-text: #253233;
+  --atom-text-muted: #546E73; /* “secondary text” */
   /* --atom-text-muted: #8A8D91; “secondary text” */
   --atom-text-inverse: #FFFFFF;
 
-  --atom-text-primary: #626468;
-  --atom-text-secondary: #8A8D91;
+  --atom-text-primary: #253233;
+  --atom-text-secondary: #546E73;
 
   --atom-theme-text-primary: #253233;
   --atom-theme-text-secondary: #546E73;
 
   /* ========== Backgrounds (NO CHANGE) ========== */
-  --atom-bg: #F9FAFB; /* required */
+  --atom-bg: #FCFEFE; /* required */
   --atom-surface: #FFFFFF;
-  --atom-surface-alt: #F5F5F5;
+  --atom-surface-alt: #E6F3F4;
 
-  --atom-theme-surface-primary: #ffffff;
-  --atom-theme-surface-secondary: #2e9995;
-  --atom-theme-surface-tertiary: #e6f3f4;
+  --atom-theme-surface-primary: #FCFEFE;
+  --atom-theme-surface-secondary: #E6F3F4;
+  --atom-theme-surface-tertiary: #B8E4E9;
 
   /* ========== Borders (NO CHANGE) ========== */
-  --atom-border: #E0E0E0; /* divider */
-  --atom-border-strong: #BDBDBD;
+  --atom-border: #CFE7E8; /* divider */
+  --atom-border-strong: #B2DFDC;
 
-  --atom-theme-border-primary: #cfe7e8;
+  --atom-theme-border-primary: #CFE7E8;
 
   /* ========== Status (NO CHANGE) ========== */
-  --atom-success: #43A047;
+  --atom-success: #66BFA5;
   --atom-warning: #FB8C00;
-  --atom-error: #E53935;
-  --atom-info: #1E88E5;
+  --atom-error: #E57D76;
+  --atom-info: #58BFC1;
 
   /* ========== Typography (kept + normalized) ========== */
   --atom-font-sans: system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue",
@@ -124,7 +124,7 @@
   --atom-radius-round: 9999px;
 
   /* ========== Effects ========== */
-  --atom-focus-ring: var(--atom-primary-400);
+  --atom-focus-ring: #8ED3D1;
   --atom-shadow-xs: rgba(82, 82, 82, 0.05) 0px 0px 0px 1px;
   --atom-shadow-xs2:rgba(0, 0, 0, 0.05) 0px 1px 2px 0px;
   --atom-shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.04);
@@ -132,26 +132,26 @@
   --atom-shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.15);
 
   /* ========== Extras for financial UI ========== */
-  --atom-link: #1E88E5;
-  --atom-link-hover: #1565C0;
-  --atom-selection: rgba(0, 121, 107, 0.18); /* teal-tinted */
-  --atom-muted: rgba(33, 33, 33, 0.04);
+  --atom-link: #2E9995;
+  --atom-link-hover: #1A5855;
+  --atom-selection: rgba(138, 210, 215, 0.28); /* teal-tinted */
+  --atom-muted: rgba(37, 50, 51, 0.04);
 
   /* Charts (categorical) */
-  --atom-chart-1: #00796B;
-  --atom-chart-2: #1E88E5;
-  --atom-chart-3: #43A047;
-  --atom-chart-4: #FB8C00;
-  --atom-chart-5: #8E24AA;
-  --atom-chart-6: #F4511E;
-  --atom-chart-7: #6D4C41;
-  --atom-chart-8: #3949AB;
-  --atom-chart-9: #00ACC1;
-  --atom-chart-10: #7CB342;
+  --atom-chart-1: #2E9995;
+  --atom-chart-2: #58BFC1;
+  --atom-chart-3: #8AD2D7;
+  --atom-chart-4: #B2DFDC;
+  --atom-chart-5: #B8E4E9;
+  --atom-chart-6: #2E9995;
+  --atom-chart-7: #58BFC1;
+  --atom-chart-8: #8AD2D7;
+  --atom-chart-9: #B2DFDC;
+  --atom-chart-10: #B8E4E9;
 
   /* ========== Component Semantic Aliases ========== */
   --atom-button-bg: var(--atom-primary);
-  --atom-button-bg-hover: var(--atom-primary-800);
+  --atom-button-bg-hover: color-mix(in srgb, var(--atom-primary) 92%, black);
   --atom-button-fg: var(--atom-primary-contrast);
 
   --atom-button-ghost-bg: transparent;
@@ -184,7 +184,7 @@
   --atom-input-border: var(--atom-border);
   --atom-input-focus: var(--atom-focus-ring);
 
-  --atom-ring-color: var(--atom-primary-400);
+  --atom-ring-color: var(--atom-focus-ring);
   --atom-ring-offset: var(--atom-bg);
   --tw-ring-color: var(--atom-ring-color);
   --tw-ring-offset-color: var(--atom-ring-offset);
@@ -203,26 +203,26 @@
 /* :where(.atom-theme)[data-theme="teal-dark"] { */
 :where(.atom-theme)[data-theme="dark"] {
   /* Brand */
-  --atom-primary-50: #E0F2F1;
-  --atom-primary-100: #B2DFDB;
-  --atom-primary-200: #80CBC4;
-  --atom-primary-300: #4DB6AC;
-  --atom-primary-400: #26A69A;
-  --atom-primary-500: #009688;
-  --atom-primary-600: #00897B;
-  --atom-primary-700: #00796B;
-  --atom-primary-800: #00695C;
-  --atom-primary-900: #004D40;
+  --atom-primary-50: #FCFEFE;
+  --atom-primary-100: #E6F3F4;
+  --atom-primary-200: #B8E4E9;
+  --atom-primary-300: #B2DFDC;
+  --atom-primary-400: #8AD2D7;
+  --atom-primary-500: #58BFC1;
+  --atom-primary-600: #2E9995;
+  --atom-primary-700: #1A5855;
+  --atom-primary-800: #1F3435;
+  --atom-primary-900: #0F1819;
 
-  --atom-primary: var(--atom-primary-400);
-  --atom-primary-contrast: #0B0F0E;
+  --atom-primary: #2E9995;
+  --atom-primary-contrast: #FFFFFF;
 
   /* Existing accent (teal) */
-  --atom-accent: var(--atom-primary-300);
-  --atom-accent-contrast: #0B0F0E;
+  --atom-accent: #2A4142;
+  --atom-accent-contrast: #E8F0F0;
 
   /* NEW: Neutral + optional overrides for Accent/Info */
-  --atom-neutral: rgb(84, 110, 115);
+  --atom-neutral: #A8BCBE;
 
   --atom-accent-custom: oklch(0.558 0.288 302.321);
   /* --atom-accent: var(--atom-accent-custom); */
@@ -230,40 +230,40 @@
   --atom-info-custom: oklch(0.546 0.245 262.881);
   /* --atom-info: var(--atom-info-custom); */
 
-  --atom-status-validated: rgb(102, 191, 165);
-  --atom-status-verified: rgb(46, 153, 149);
+  --atom-status-validated: #4D9980;
+  --atom-status-verified: #2E9995;
 
   /* Text */
-  --atom-text: #E0E0E0;
-  --atom-text-muted: #BDBDBD;
-  --atom-text-inverse: #0F0F0F;
+  --atom-text: #E8F0F0;
+  --atom-text-muted: #A8BCBE;
+  --atom-text-inverse: #0F1819;
 
-  --atom-text-primary: #E0E0E0;
-  --atom-text-secondary: #BDBDBD;
+  --atom-text-primary: #E8F0F0;
+  --atom-text-secondary: #A8BCBE;
 
   --atom-theme-text-primary: #E8F0F0;
   --atom-theme-text-secondary: #A8BCBE;
 
   /* Backgrounds */
-  --atom-bg: #121212;
-  --atom-surface: #1A1A1A;
-  --atom-surface-alt: #222222;
+  --atom-bg: #0F1819;
+  --atom-surface: #1A2425;
+  --atom-surface-alt: #1F3435;
 
-  --atom-theme-surface-primary: #1a2425;
-  --atom-theme-surface-secondary: #2e9995;
-  --atom-theme-surface-tertiary: #1f3435;
+  --atom-theme-surface-primary: #1A2425;
+  --atom-theme-surface-secondary: #1F3435;
+  --atom-theme-surface-tertiary: #2A4142;
 
   /* Borders */
-  --atom-border: #2C2C2C;
-  --atom-border-strong: #3A3A3A;
+  --atom-border: #2A4142;
+  --atom-border-strong: #1A5855;
 
-  --atom-theme-border-primary: #2a4142;
+  --atom-theme-border-primary: #2A4142;
 
   /* Status */
-  --atom-success: #43A047;
+  --atom-success: #4D9980;
   --atom-warning: #FB8C00;
-  --atom-error: #E53935;
-  --atom-info: #1E88E5;
+  --atom-error: #D96962;
+  --atom-info: #58BFC1;
 
   /* Typography */
   --atom-font-sans: system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue",
@@ -300,28 +300,28 @@
   --atom-radius-round: 9999px;
 
   /* Effects */
-  --atom-focus-ring: var(--atom-primary-400);
+  --atom-focus-ring: #5A9A9D;
   --atom-shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.3);
   --atom-shadow-md: 0 4px 12px rgba(0, 0, 0, 0.45);
   --atom-shadow-lg: 0 12px 24px rgba(0, 0, 0, 0.55);
 
   /* Extras */
-  --atom-link: #90CAF9;
-  --atom-link-hover: #64B5F6;
-  --atom-selection: rgba(38, 166, 154, 0.26);
+  --atom-link: #58BFC1;
+  --atom-link-hover: #8AD2D7;
+  --atom-selection: rgba(90, 154, 157, 0.35);
   --atom-muted: rgba(255, 255, 255, 0.06);
 
   /* Charts (dark-optimized) */
-  --atom-chart-1: #26A69A;
-  --atom-chart-2: #64B5F6;
-  --atom-chart-3: #81C784;
-  --atom-chart-4: #FFB74D;
-  --atom-chart-5: #BA68C8;
-  --atom-chart-6: #FF7043;
-  --atom-chart-7: #8D6E63;
-  --atom-chart-8: #7986CB;
-  --atom-chart-9: #4DD0E1;
-  --atom-chart-10: #AED581;
+  --atom-chart-1: #2E9995;
+  --atom-chart-2: #58BFC1;
+  --atom-chart-3: #8AD2D7;
+  --atom-chart-4: #B2DFDC;
+  --atom-chart-5: #B8E4E9;
+  --atom-chart-6: #2E9995;
+  --atom-chart-7: #58BFC1;
+  --atom-chart-8: #8AD2D7;
+  --atom-chart-9: #B2DFDC;
+  --atom-chart-10: #B8E4E9;
 
   /* Component aliases */
   --atom-button-bg: var(--atom-primary);
@@ -336,12 +336,12 @@
   --atom-card-fg: var(--atom-text);
   --atom-card-border: var(--atom-border);
 
-  --atom-input-bg: #161616;
+  --atom-input-bg: #1F3435;
   --atom-input-fg: var(--atom-text);
   --atom-input-border: var(--atom-border);
   --atom-input-focus: var(--atom-focus-ring);
 
-  --atom-ring-color: var(--atom-primary-400);
+  --atom-ring-color: var(--atom-focus-ring);
   --atom-ring-offset: var(--atom-bg);
 
   --atom-ripple-color-solid: var(--atom-button-fg);
