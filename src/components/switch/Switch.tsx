@@ -25,7 +25,7 @@ const MoonIcon = ({ size = 12 }: { size?: number }) => (
   <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor">
     <path d="M21 12.8A9 9 0 1 1 11.2 3 7 7 0 0 0 21 12.8z" />
   </svg>
-)
+) 
 
 const StarIcon = ({ size = 8 }: { size?: number }) => (
   <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor">
@@ -83,6 +83,10 @@ export const Switch = React.forwardRef<
                 initial={{ opacity: 0, scale: 0.4, rotate: -180 }}
                 animate={{ opacity: 1, scale: 1, rotate: 0 }}
                 exit={{ opacity: 0, scale: 0, rotate: 180 }}
+                transition={{
+                duration: 0.4,
+                ease: 'easeOut',
+              }}
               >
                 <SunIcon size={iconSize} />
               </motion.div>
@@ -94,6 +98,10 @@ export const Switch = React.forwardRef<
                   initial={{ opacity: 0, scale: 0.4 }}
                   animate={{ opacity: 1, scale: 1 }}
                   exit={{ opacity: 0, scale: 0 }}
+                  transition={{
+                  duration: 0.4,
+                  ease: 'easeOut',
+                }}
                 >
                   <MoonIcon size={iconSize} />
                 </motion.div>
@@ -103,6 +111,12 @@ export const Switch = React.forwardRef<
                   className="absolute right-3 top-1 text-white/60"
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
+                  exit={{ opacity: 0, scale: 0 }}
+                  transition={{
+                  duration: 0.3,
+                  delay: 0.1,
+                  ease: 'easeOut',
+                }}
                 >
                   <StarIcon />
                 </motion.div>
@@ -110,21 +124,34 @@ export const Switch = React.forwardRef<
             )}
           </AnimatePresence>
         )}
-
         {/* THUMB */}
-        <MotionThumb
-          data-slot="switch-thumb"
-          className={cn(
-            cfg.size,
-            'block rounded-full bg-[var(--atom-bg)] shadow-md'
-          )}
-          animate={{
-            x: internal ? cfg.translateX : 0,
-            scaleX: animate ? [1, 1.25, 1] : 1,
-            scaleY: animate ? [1, 0.9, 1] : 1,
-          }}
-          transition={{ type: 'spring', stiffness: 500, damping: 30 }}
-        />
+      <MotionThumb
+        data-slot="switch-thumb"
+        className={cn(
+          cfg.size,
+          'block rounded-full bg-white  relative z-10 ',
+        )}
+        animate={{
+          x: internal ? cfg.translateX : 0,
+          scaleX: animate ? [1, 1.3, 1] : 1,
+          scaleY: animate ? [1, 0.9, 1] : 1,
+        }}
+        transition={{
+          x: {
+            type: 'spring',
+            stiffness: 500,
+            damping: 30,
+          },
+          scaleX: {
+            duration: 0.3,
+            ease: 'easeInOut',
+          },
+          scaleY: {
+            duration: 0.3,
+            ease: 'easeInOut',
+          },
+        }}
+      />
       </SwitchPrimitive.Root>
     )
   }
