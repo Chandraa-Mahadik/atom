@@ -17,20 +17,20 @@
   /* ========== Brand / Primary (Deep Teal) ========== */
   --atom-primary-50: #FCFEFE;
   --atom-primary-100: #E6F3F4;
-  --atom-primary-200: #B8E4E9;
-  --atom-primary-300: #B2DFDC;
-  --atom-primary-400: #8AD2D7;
-  --atom-primary-500: #58BFC1;
-  --atom-primary-600: #2E9995;
-  --atom-primary-700: #2E9995; /* base */
+  --atom-primary-200: #B2E2E7;
+  --atom-primary-300: #A2DADB;
+  --atom-primary-400: #75CDD0;
+  --atom-primary-500: #44B5B6;
+  --atom-primary-600: #1F8E8A;
+  --atom-primary-700: #1F8E8A; /* base */
   --atom-primary-800: #1A5855;
   --atom-primary-900: #0F1819;
 
-  --atom-primary: #2E9995;
+  --atom-primary: #1F8E8A;
   --atom-primary-contrast: #FFFFFF;
 
   /* Existing accent (teal) */
-  --atom-accent: #B8E4E9;
+  --atom-accent: #AEE1E6;
   --atom-accent-contrast: #253233;
 
   /* NEW: Neutral + optional overrides for Accent/Info */
@@ -62,17 +62,17 @@
   --atom-theme-text-secondary: #546E73;
 
   /* ========== Backgrounds (NO CHANGE) ========== */
-  --atom-bg: #FCFEFE; /* required */
+  --atom-bg: #F7FCFD; /* required */
   --atom-surface: #FFFFFF;
-  --atom-surface-alt: #E6F3F4;
+  --atom-surface-alt: #E2F2F4;
 
-  --atom-theme-surface-primary: #FCFEFE;
-  --atom-theme-surface-secondary: #E6F3F4;
-  --atom-theme-surface-tertiary: #B8E4E9;
+  --atom-theme-surface-primary: #F7FCFD;
+  --atom-theme-surface-secondary: #E2F2F4;
+  --atom-theme-surface-tertiary: #AEE1E6;
 
   /* ========== Borders (NO CHANGE) ========== */
-  --atom-border: #CFE7E8; /* divider */
-  --atom-border-strong: #B2DFDC;
+  --atom-border: #C6E3E5; /* divider */
+  --atom-border-strong: #9BD6D8;
 
   --atom-theme-border-primary: #CFE7E8;
 
@@ -124,7 +124,7 @@
   --atom-radius-round: 9999px;
 
   /* ========== Effects ========== */
-  --atom-focus-ring: #8ED3D1;
+  --atom-focus-ring: #74C9CC;
   --atom-shadow-xs: rgba(82, 82, 82, 0.05) 0px 0px 0px 1px;
   --atom-shadow-xs2:rgba(0, 0, 0, 0.05) 0px 1px 2px 0px;
   --atom-shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.04);
@@ -132,22 +132,22 @@
   --atom-shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.15);
 
   /* ========== Extras for financial UI ========== */
-  --atom-link: #2E9995;
-  --atom-link-hover: #1A5855;
-  --atom-selection: rgba(138, 210, 215, 0.28); /* teal-tinted */
+  --atom-link: #1F8E8A;
+  --atom-link-hover: #166E6B;
+  --atom-selection: rgba(116, 201, 204, 0.32); /* teal-tinted */
   --atom-muted: rgba(37, 50, 51, 0.04);
 
   /* Charts (categorical) */
-  --atom-chart-1: #2E9995;
-  --atom-chart-2: #58BFC1;
-  --atom-chart-3: #8AD2D7;
-  --atom-chart-4: #B2DFDC;
-  --atom-chart-5: #B8E4E9;
-  --atom-chart-6: #2E9995;
-  --atom-chart-7: #58BFC1;
-  --atom-chart-8: #8AD2D7;
-  --atom-chart-9: #B2DFDC;
-  --atom-chart-10: #B8E4E9;
+  --atom-chart-1: #1F8E8A;
+  --atom-chart-2: #44B5B6;
+  --atom-chart-3: #75CDD0;
+  --atom-chart-4: #A2DADB;
+  --atom-chart-5: #B2E2E7;
+  --atom-chart-6: #1F8E8A;
+  --atom-chart-7: #44B5B6;
+  --atom-chart-8: #75CDD0;
+  --atom-chart-9: #A2DADB;
+  --atom-chart-10: #B2E2E7;
 
   /* ========== Component Semantic Aliases ========== */
   --atom-button-bg: var(--atom-primary);
