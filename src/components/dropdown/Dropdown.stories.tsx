@@ -536,6 +536,50 @@ export const KeyboardNavigation: Story = {
   },
 }
 
+export const FixedWidthContent: Story = {
+  args: {
+    children: (
+      <>
+        <DropdownTrigger variant="default">
+          Fixed Width <ChevronDown className="h-4 w-4" />
+        </DropdownTrigger>
+
+        <DropdownContent width={280}>
+          <DropdownLabel>Fixed Width (280px)</DropdownLabel>
+          <DropdownItem>Short</DropdownItem>
+          <DropdownItem>Medium length item</DropdownItem>
+          <DropdownItem>
+            Very very long item text to prove width handling
+          </DropdownItem>
+        </DropdownContent>
+      </>
+    ),
+  },
+}
+
+export const MatchTriggerWidth: Story = {
+  args: {
+    children: (
+      <>
+        <DropdownTrigger
+          variant="default"
+          className="w-72 justify-between"
+        >
+          Match Trigger Width
+          <ChevronDown className="h-4 w-4" />
+        </DropdownTrigger>
+
+        <DropdownContent matchTriggerWidth>
+          <DropdownLabel>Same width as trigger</DropdownLabel>
+          <DropdownItem>Option One</DropdownItem>
+          <DropdownItem>Option Two</DropdownItem>
+          <DropdownItem>Option Three</DropdownItem>
+        </DropdownContent>
+      </>
+    ),
+  },
+}
+
 // ============================================================================
 // PLAYGROUND
 // ============================================================================

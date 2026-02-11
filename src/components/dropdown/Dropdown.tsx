@@ -252,13 +252,18 @@ export interface DropdownContentProps
   preventClose?: boolean
   /** Close dropdown when an item is selected */
   children?: ReactNode
+
+  /** Match dropdown width to trigger width */
+  matchTriggerWidth?: boolean
+
+  /** Explicit dropdown width (overrides matchTriggerWidth) */
+  width?: number | string
 }
 
-export interface DropdownItemProps
-  extends Omit<
-    React.HTMLAttributes<HTMLDivElement>,
-    'onDrag' | 'onDragStart' | 'onDragEnd' | 'onAnimationStart'
-  > {
+export interface DropdownItemProps extends Omit<
+  React.HTMLAttributes<HTMLDivElement>,
+  'onDrag' | 'onDragStart' | 'onDragEnd' | 'onAnimationStart'
+> {
   disabled?: boolean
   /** Prevent closing on click */
   preventClose?: boolean
@@ -266,8 +271,7 @@ export interface DropdownItemProps
   value?: string
 }
 
-export interface DropdownGroupProps
-  extends React.HTMLAttributes<HTMLDivElement> {
+export interface DropdownGroupProps extends React.HTMLAttributes<HTMLDivElement> {
   children: ReactNode
 }
 
@@ -646,10 +650,7 @@ export const DropdownTrigger = forwardRef<
 
 DropdownTrigger.displayName = 'DropdownTrigger'
 
-export const DropdownContent = forwardRef<
-  HTMLDivElement,
-  DropdownContentProps
->(
+export const DropdownContent = forwardRef<HTMLDivElement, DropdownContentProps>(
   (
     {
       className,
@@ -660,6 +661,8 @@ export const DropdownContent = forwardRef<
       alignOffset = 0,
       container,
       preventClose = false,
+      matchTriggerWidth = false,
+      width,
       ...props
     },
     ref,
@@ -675,7 +678,7 @@ export const DropdownContent = forwardRef<
     const contentRef = useRef<HTMLDivElement | null>(null)
     const triggerRef = useRef<HTMLElement | null>(null)
     const dropdownContainer = useThemePortal()
-
+    const [triggerWidth, setTriggerWidth] = useState<number | null>(null)
     useEffect(() => {
       if (ref) {
         if (typeof ref === 'function') {
@@ -685,6 +688,13 @@ export const DropdownContent = forwardRef<
         }
       }
     }, [ref])
+
+    useEffect(() => {
+      if (!open || !triggerRef.current) return
+
+      const rect = triggerRef.current.getBoundingClientRect()
+      setTriggerWidth(rect.width)
+    }, [open])
 
     // Ensure side and align are never null by providing defaults
     const safeSide: DropdownSide = side ?? 'bottom'
@@ -784,6 +794,13 @@ export const DropdownContent = forwardRef<
               top: `${position.top}px`,
               left: `${position.left}px`,
               pointerEvents: 'auto',
+              width: width
+                ? typeof width === 'number'
+                  ? `${width}px`
+                  : width
+                : matchTriggerWidth && triggerWidth
+                  ? `${triggerWidth}px`
+                  : undefined,
             }}
             {...props}
           >
@@ -872,9 +889,8 @@ export const DropdownItem = forwardRef<HTMLDivElement, DropdownItemProps>(
       const menuItems = Array.from(
         currentItem
           .closest('[role="menu"]')
-          ?.querySelectorAll(
-            '[role="menuitem"]:not([aria-disabled="true"])',
-          ) || [],
+          ?.querySelectorAll('[role="menuitem"]:not([aria-disabled="true"])') ||
+          [],
       )
       const currentIndex = menuItems.indexOf(currentItem)
 
@@ -992,10 +1008,7 @@ export const DropdownSeparator = forwardRef<
     role="separator"
     aria-orientation="horizontal"
     data-testid="dropdown-separator"
-    className={cn(
-      'my-1 h-px bg-(--atom-theme-border-primary)',
-      className,
-    )}
+    className={cn('my-1 h-px bg-(--atom-theme-border-primary)', className)}
     {...props}
   />
 ))
